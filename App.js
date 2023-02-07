@@ -1,18 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View ,ScrollView} from 'react-native';
+import { TextInput } from 'react-native-web';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.sodoo}>Hello</Text>
-      <Image style={{width:20,height:20}} source={require('./assets/favicon.png')}></Image>
+      <ScrollView style={styles.scroll}>
+      <Pressable onLongPress={()=>{
+        alert("Hello Image")
+      }} onPress={()=>{
+        alert('Image')
+      }}>
+        <Image style={{width:1000,height:1000}} source={require('./assets/bg.png')}></Image>
+      </Pressable>
+      <Pressable onLongPress={()=>{
+        alert("Hello World")
+      }} onPress={()=>{
+        alert('Hello')
+      }}>
+      <Text>Hello My name is Sod-Erdene</Text>
+      </Pressable>
+      {/* <TextInput
+        style={styles.inputs}
+        placeholder="Write..."
+      /> */}
       <StatusBar style="auto" />
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    height:1000,
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
@@ -21,5 +41,14 @@ const styles = StyleSheet.create({
   sodoo:{
     fontSize:"50px",
     color:"red"
-  }
+  },
+  inputs: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  scroll:{
+    marginHorizontal:20,
+  },
 });
