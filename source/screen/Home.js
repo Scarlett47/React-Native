@@ -46,6 +46,12 @@ export default function Home({ navigation }) {
               source={require("../assets/bg.png")}
             />
           </View>
+          <Button
+        onPress={() => {
+          navigation.navigate("aone");
+        }}
+        title="Go"
+      />
         </ScrollView>
       </SafeAreaView>
     </>
