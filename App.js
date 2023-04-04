@@ -10,16 +10,15 @@ import athree from "./source/screen/a3";
 import a4 from "./source/screen/a4";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+// import { urlUtils , sendRequest } from "../settings/settings";
 
-const Drawer = createDrawerNavigator();
 const HomeStack = createNativeStackNavigator();
 const NextStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function App() {
   function HomeTab() {
     return (
-      <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+      <HomeStack.Navigator screenOptions={{  }}>
         <HomeStack.Screen name="Home" component={HomeScreen} />
         <HomeStack.Screen name="Detail" component={DetailScreen} />
       </HomeStack.Navigator>
@@ -27,15 +26,16 @@ export default function App() {
   }
   function NextTab() {
     return (
-      <NextStack.Navigator screenOptions={{ headerShown: false }}>
+      <NextStack.Navigator screenOptions={{  }}>
         <NextStack.Screen name="aone" component={aone} />
         <NextStack.Screen name="atwo" component={atwo} />
         <NextStack.Screen name="athree" component={athree} />
       </NextStack.Navigator>
     );
   }
-  function Drawers() {
     return (
+    <NavigationContainer>
+
       <Tab.Navigator
         initialRouteName="Feed"
         screenOptions={{
@@ -66,14 +66,6 @@ export default function App() {
           }}
         />
       </Tab.Navigator>
+          </NavigationContainer>
     );
   }
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="He" >
-        <Drawer.Screen name="He" component={Drawers} />
-        <Drawer.Screen name="DPL" component={a4} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
-}
